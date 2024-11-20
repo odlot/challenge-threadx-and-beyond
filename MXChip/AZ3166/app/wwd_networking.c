@@ -341,6 +341,9 @@ UINT wwd_network_init(CHAR* ssid, CHAR* password, WiFi_Mode mode)
     return status;
 }
 
+
+
+
 UINT wwd_network_connect()
 {
     UINT status;
@@ -392,10 +395,10 @@ UINT wwd_network_connect()
     }
 
     // Wait for an SNTP sync
-    else if ((status = sntp_sync()))
+    /*else if ((status = sntp_sync()))
     {
         printf("ERROR: Failed to sync SNTP time (0x%08x)\r\n", status);
-    }
+    }*/
 
     return status;
 }
