@@ -145,6 +145,14 @@ static void eclipsetx_thread_entry(ULONG parameter)
                     STRLEN(MESSAGE_STRING), 0, QOS1, NX_WAIT_FOREVER);
                 printf("Publish a message with QoS level 1: %s\n", snum);
                 tx_thread_sleep(0.1 * TX_TIMER_TICKS_PER_SECOND);
+            } else {
+                value = 50;
+                itoa(value, snum, 10);
+                nxd_mqtt_client_publish(&mqtt_client, TOPIC_NAME,
+                    STRLEN(TOPIC_NAME), (CHAR*)snum, 
+                    STRLEN(MESSAGE_STRING), 0, QOS1, NX_WAIT_FOREVER);
+                printf("Publish a message with QoS level 1: %s\n", snum);
+                tx_thread_sleep(0.1 * TX_TIMER_TICKS_PER_SECOND);
             }
         }
     }
